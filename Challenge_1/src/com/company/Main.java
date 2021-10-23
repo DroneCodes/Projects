@@ -107,7 +107,7 @@ public class Main {
             if (doesExist) {
                 // if we have such contact, we would ask for the message
                 System.out.println("You can now type in your Message");
-                String text = scanner.nextLine();
+                String text = scanner.next();
                 if (text.equals("")) {
                     System.out.println("Please enter your Message again");
                     sendNewMessage();
@@ -267,14 +267,20 @@ public class Main {
 
     }
 
-    private static void showAllContacts() {
-        for (Contact c: contacts) {
-            c.getDetails();
-            System.out.println("----------------------"); // allows differentiation this isn't necessary
+   private static void showAllContacts() {
+        if (contacts.size()>0) {
+            for (Contact c: contacts) {
+                c.getDetails();
+                System.out.println("----------------------"); // allows differentiation this isn't necessary
+            }
+
+            showInitialOptions();
+        }else {
+            System.out.println("You do not have any Contacts");
+            showInitialOptions();
         }
 
-        showInitialOptions();
     }
-
+       
 
 }
